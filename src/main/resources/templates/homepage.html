@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h2 th:text="'WELCOME, ' + ${session.accounts.email}">Welcome</h2>
+<form th:action="@{/movies/search}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="Search"/>
+    <button type="submit">Search</button>
+</form>
+
+<table border="1" style="width: 100%">
+    <thead>
+    <tr>
+        <th>MovieID</th>
+        <th>MovieName</th>
+        <th>Duration</th>
+        <th>Actor</th>
+        <th>Status</th>
+        <th>DirectorName</th>
+        <th th:if="${session.accounts.roleID == 1}">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.movieID}"></td>
+        <td th:text="${movie.movieName}"></td>
+        <td th:text="${movie.duration}"></td>
+        <td th:text="${movie.actor}"></td>
+        <td th:text="${movie.status}"></td>
+        <td th:text="${movie.director.directorName}"></td>
+        <td th:if="${session.accounts.roleID == 1}">
+            <a th:href="@{'/movies/edit/' + ${movie.movieID}}">Edit</a> |
+            <a th:href="@{'/movies/delete/' + ${movie.movieID}}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${session.accounts.roleID == 1}">
+    <a th:href="@{'/movies/create'}">Create Movie</a>
+</div>
+
+</body>
+</html>
