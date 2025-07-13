@@ -1,0 +1,84 @@
+/* homepage-form.css */
+
+/* General layout */
+body {
+    background-color: #33FFFF;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+/* Center the form and set fixed dimensions */
+form {
+    width: 650px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Table layout inside the form */
+table {
+    width: 100%;
+    font-size: 13px;
+    color: #000;
+}
+
+/* Labels (left column) */
+td:first-child {
+    width: 30%;
+    padding: 5px;
+    vertical-align: top;
+}
+
+/* Inputs and selects */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 6px;
+    font-size: 13px;
+    color: white;
+    background-color: #33FF33;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: left;
+}
+
+/* Buttons */
+button {
+    font-size: 13px;
+    padding: 6px 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0099cc;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #007399;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}
+
+
+/* Back to home link */
+a {
+    font-size: 13px;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
